@@ -29,9 +29,14 @@ public class SendRequest<T> extends BasicConnection {
                         UI_HANDLER.post(new Runnable() {
                             @Override
                             public void run() {
-                                T response = (T) JsonDispose.getObject(finish,c);
-                                callback.succeed(response);
-                                callback.succeed(finish);
+                                if (c == null){
+                                    callback.succeed(finish);
+                                    callback.succeed((T) null);
+                                } else {
+                                    T response = (T) JsonDispose.getObject(finish,c);
+                                    callback.succeed(response);
+                                    callback.succeed(finish);
+                                }
                             }
                         });
                     } else {

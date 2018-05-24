@@ -7,7 +7,7 @@ import com.example.cynthia.httphelper.HttpHelper;
 
 public class Response {
     private HttpHelper helper;
-    private Class mClass;
+    private Class mClass = null;
 
     public static class from{
         private Response mResponse = new Response();
